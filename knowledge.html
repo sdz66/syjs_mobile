@@ -67,16 +67,20 @@
   </header>
 
   <main>
-    <article>
-      <section class="section hero" aria-label="hero">
+    <article>      
+      <section class="section hero has-bg-image" aria-labelledby="hero-label"
+        style="background-image: url('./assets/images/hero-bg.png')">
         <div class="container">
+
           <div class="hero-content">
-            <h1 class="headline-lg hero-title">智慧教材</h1>
-            <p class="title-md hero-text"></p>
+
+            <h1 class="headline-lg" id="hero-label">
+              <span class="span">智慧</span>教材
+            </h1>
+<!-- 以下可输入文本 -->
+            <p class="title-md has-before">              
+            </p>
           </div>
-          <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="680" height="720" alt="hero banner" class="w-100">
-          </figure>
         </div>
       </section>
       <div id="toc" class="toc">
@@ -217,7 +221,10 @@
     });
 </script>
       <div style="text-align: center;">
-        <h1 class="headline-lg hero-title">指尖AR</h1>
+        <h1 class="headline-lg" id="hero-label">
+          指尖<span class="span">AR</span>
+        </h1>
+        <br>
         <img src="./assets/images/AR.jpg" alt="指尖AR图片" style="width: 400px; height: 400px; display: block; margin: 0 auto;">
 
       </div>
@@ -267,6 +274,7 @@
   }
 </style>
 <!-- 评论区位置 -->
+ <br>
 <div class="comment-section">
   <h2>精选评论</h2>
   <div class="comment-list">
