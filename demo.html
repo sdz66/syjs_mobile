@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>底部导航实现点击切换页面</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+ 
+        .menu {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            color: white;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            background-color: #010791;
+        }
+ 
+        .subMenu {
+            width: 25%;
+            float: left;
+            cursor: pointer;
+        }
+ 
+        .menu_name {
+            height: 30px;
+            width: 100%;
+            line-height: 30px;
+            font-size: 40px;
+        }
+ 
+        .active {
+            color: #01cd3f;
+        }
+ 
+        .text-center {
+            text-align: center
+        }
+ 
+        button{
+            border-style: none;
+ 
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body onload="initSize()" onresize="initSize()">
+<!--content-->
+<div id="content"></div>
+<!--bottom-->
+<div id="menu" class="menu">
+    <div id="one" class="subMenu text-center" data-src="radar.html">
+        <span class="glyphicon glyphicon-edit btn-lg" style="font-size:40px;"></span>
+        <div class="menu_name">考核</div>
+    </div>
+    <div id="two" class="subMenu text-center" data-src="cha.html">
+        <span class="glyphicon glyphicon-list btn-lg" style="font-size:40px;"></span>
+        <div class="menu_name">特征</div>
+    </div>
+    <div id="three" class="subMenu text-center" data-src="advise.html">
+        <span class="glyphicon glyphicon-comment btn-lg" style="font-size:40px;"></span>
+        <div class="menu_name">建议</div>
+    </div>
+    <div id="four" class="subMenu text-center" data-src="position.html">
+        <span class="glyphicon glyphicon-sort-by-attributes-alt btn-lg" style="font-size:40px;"></span>
+        <div class="menu_name">排名</div>
+    </div>
+</div>
+ 
+</body>
+<script>
+    //$(function () {});
+    $(document).ready(function () {
+        //点击事件
+        $("div .subMenu").click(function () {
+ 
+            $(".active").removeClass("active");
+ 
+            // 添加新状态
+            $(this).addClass("active");
+            //content根据点击按钮加载不同的html
+            var page = $(this).attr("data-src");
+            if(page){
+                $("#content").load(page)
+            }
+        });
+ 
+        // 自动点击第一个菜单
+        $("div .subMenu")[0].click();
+    });
+ 
+    /*content高度*/
+    function initSize() {
+        var height = $(window).height() - $("header").height() - $("#description").height() - $("#menu").height();
+        $("#content").height(height + "px");
+    }
+</script>
+ 
+</html>
