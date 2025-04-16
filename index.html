@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3711888_ede0hndx99d.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles.css">
   <!-- 
     - primary meta tags
   -->
-  <title>水韵江苏配套数字资源</title>
-  <meta name="title" content="水韵江苏配套数字资源">
+  <title>知行擂台</title>
+  <meta name="title" content="知行擂台排行榜">
   <meta name="description" content="This is a education html template made by codewithsadee">
 
   <!-- 
@@ -27,179 +28,67 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
   <!-- 
     - preload images
   -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
-  <style>
-    body{margin: 0px;}
 
-/* 新增导航栏样式 */
-.menu {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  color: white;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  background-color: #010791;
-}
-.subMenu {
-  width: 25%;
-  float: left;
-  cursor: pointer;
-}
-.menu_name {
-  height: 30px;
-  width: 100%;
-  line-height: 30px;
-  font-size: 40px;
-}
-.active {
-  color: #01cd3f;
-}
-   .icon {
-       width: 1em;
-       height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-   }
-
-   .wrap {
-       align-content: flex-start;
-   }
-
-   img {
-       width: 100%;
-   }
-
-   .title {
-       width: 100%;
-       display: flex;
-       height: 150px;
-   }
-
-   .title span {
-       font-size: 40px;
-       padding: 20px;
-       width: 100%;
-       display: flex;
-       justify-content: center;
-   }
-
-   .effect {
-       display: flex;
-       flex-wrap: wrap;
-       align-content: center;
-       justify-content: center;
-       position: relative;
-       margin: 50px;
-   }
-
-   .footer {
-       position: relative;
-       display: flex;
-       background-color: #fff;
-       padding: 10px;
-       border-radius: 40px;
-       overflow: hidden;
-   }
-
-   .footer a {
-       position: relative;
-       text-decoration: none;
-       color: #53588b;
-       font-family: AlimamaShuHeiTi-Bold;
-       font-size: 15px;
-       text-align: center;
-       display: flex;
-       width: 100px;
-       padding: 10px;
-       box-sizing: border-box;
-       z-index: 2;
-       align-items: center;
-       height: 40px;
-       justify-content: center;
-   }
-
-   .footer a b {
-       position: relative;
-       top: 40px;
-       transition: 0.3s ease top;
-   }
-
-   .footer a i {
-       position: relative;
-       left: 25%;
-       transition: 0.3s ease left;
-   }
-
-   .footer span {
-       position: absolute;
-       width: 100px;
-       background-color: #c8c8c8;
-       top: 10px;
-       bottom: 10px;
-       left: 10px;
-       border-radius: 50px;
-       z-index: 1;
-       transition: 0.3s ease left;
-   }
-
-   .footer a:hover b {
-       top: 0;
-   }
-
-   .footer a:hover i {
-       left: 0;
-   }
-
-   .footer a:nth-child(1):hover~span {
-       left: 10px;
-   }
-
-   .footer a:nth-child(2):hover~span {
-       left: 114px;
-   }
-
-   .footer a:nth-child(3):hover~span {
-       left: 210px;
-   }
-   .footer a:nth-child(4):hover~span {
-       left: 315px;
-   }
-   i{font-size: 24px !important;}
-
-   
-.menu {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  color: white;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  background-color: #010791;
-}
-
-.subMenu {
-  width: 25%;
-  float: left;
-  cursor: pointer;
-}
-</style>
 </head>
 
 <body>
+  <header class="header" data-header>
+    <div class="container">
 
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link title-sm" data-nav-link>首页</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="knowledge.html" class="navbar-link title-sm" data-nav-link>知识е览</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="answer.html" class="navbar-link title-sm" data-nav-link>知苏答理</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="travel.html" class="navbar-link title-sm" data-nav-link>苏行漫迹</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <a href="#" class="btn btn-secondary"> 中文 </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-overlay data-nav-toggler></div>
+
+    </div>
+  </header>
   <!-- 
     - PRELOADER
   -->
@@ -277,50 +166,6 @@
 
 </body>
 
-<!-- 新增导航栏交互脚本 -->
-<script>
-$(document).ready(function() {
-  $(".subMenu").click(function() {
-    $(".active").removeClass("active");
-    $(this).addClass("active");
-    var page = $(this).attr("data-src");
-    if(page) $("#content").load(page);
-  }).first().click();
-});
-</script>
 
 </html>
 
-
-<!-- 新增导航栏 -->
-<div id="menu" class="menu">
-  <div class="subMenu text-center" data-src="radar.html">
-    <span class="glyphicon glyphicon-edit btn-lg" style="font-size:40px;"></span>
-    <div class="menu_name">考核</div>
-  </div>
-  <div class="subMenu text-center" data-src="cha.html">
-    <span class="glyphicon glyphicon-list btn-lg" style="font-size:40px;"></span>
-    <div class="menu_name">特征</div>
-  </div>
-  <div class="subMenu text-center" data-src="advise.html">
-    <span class="glyphicon glyphicon-comment btn-lg" style="font-size:40px;"></span>
-    <div class="menu_name">建议</div>
-  </div>
-  <div class="subMenu text-center" data-src="position.html">
-    <span class="glyphicon glyphicon-sort-by-attributes-alt btn-lg" style="font-size:40px;"></span>
-    <div class="menu_name">排名</div>
-  </div>
-</div>
-
-
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  $(".subMenu").click(function() {
-    $(".active").removeClass("active");
-    $(this).addClass("active");
-    var page = $(this).attr("data-src");
-    if(page) $("#content").load(page);
-  }).first().click();
-});
-</script>
