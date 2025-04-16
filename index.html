@@ -6,8 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3711888_ede0hndx99d.css">
- 
-  <link rel="stylesheet" href="index.css" type="text/css">
   <!-- 
     - primary meta tags
   -->
@@ -29,6 +27,8 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
   <!-- 
     - preload images
@@ -37,6 +37,33 @@
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
   <style>
     body{margin: 0px;}
+
+/* 新增导航栏样式 */
+.menu {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  color: white;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  background-color: #010791;
+}
+.subMenu {
+  width: 25%;
+  float: left;
+  cursor: pointer;
+}
+.menu_name {
+  height: 30px;
+  width: 100%;
+  line-height: 30px;
+  font-size: 40px;
+}
+.active {
+  color: #01cd3f;
+}
    .icon {
        width: 1em;
        height: 1em;
@@ -149,6 +176,25 @@
        left: 315px;
    }
    i{font-size: 24px !important;}
+
+   
+.menu {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  color: white;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  background-color: #010791;
+}
+
+.subMenu {
+  width: 25%;
+  float: left;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -196,10 +242,8 @@
     </article>
   </main>
 
-
-
-<!-- 
-  <div class="footer">
+<!-- 保留原有footer注释 -->
+<!-- <div class="footer">
     <a href="index.html">
         <i class="iconfont icon-shouye"></i>
         <b>首页</b>
@@ -232,43 +276,51 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-<div class="container">
-  <div class="item active">
-      <ion-icon name="home-outline" class="icon"></ion-icon>
-      <div class="text">Home</div>
-  </div>
 
-  <div class="item">
-      <ion-icon name="chatbubble-outline" class="icon"></ion-icon>
-      <div class="text">Chat</div>
-  </div>
-
-  <div class="item">
-      <ion-icon name="camera-outline" class="icon"></ion-icon>
-      <div class="text">Camera</div>
-  </div>
-
-  <div class="item">
-      <ion-icon name="person-outline" class="icon"></ion-icon>
-      <div class="text">User</div>
-  </div>
-  <div class="indicator"></div>
-</div>
-
+<!-- 新增导航栏交互脚本 -->
 <script>
-  const list = document.querySelectorAll('.item')
-  function activeLink() {
-      list.forEach((item) =>
-          item.classList.remove('active'))
-      this.classList.add('active')
-  }
-  list.forEach((item) =>
-      item.addEventListener('click', activeLink))
+$(document).ready(function() {
+  $(".subMenu").click(function() {
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+    var page = $(this).attr("data-src");
+    if(page) $("#content").load(page);
+  }).first().click();
+});
 </script>
 
-<script type="module" src="ionic.esm.js"></script>
-<script nomodule src="ionic.js"></script>
-
-
-
 </html>
+
+
+<!-- 新增导航栏 -->
+<div id="menu" class="menu">
+  <div class="subMenu text-center" data-src="radar.html">
+    <span class="glyphicon glyphicon-edit btn-lg" style="font-size:40px;"></span>
+    <div class="menu_name">考核</div>
+  </div>
+  <div class="subMenu text-center" data-src="cha.html">
+    <span class="glyphicon glyphicon-list btn-lg" style="font-size:40px;"></span>
+    <div class="menu_name">特征</div>
+  </div>
+  <div class="subMenu text-center" data-src="advise.html">
+    <span class="glyphicon glyphicon-comment btn-lg" style="font-size:40px;"></span>
+    <div class="menu_name">建议</div>
+  </div>
+  <div class="subMenu text-center" data-src="position.html">
+    <span class="glyphicon glyphicon-sort-by-attributes-alt btn-lg" style="font-size:40px;"></span>
+    <div class="menu_name">排名</div>
+  </div>
+</div>
+
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $(".subMenu").click(function() {
+    $(".active").removeClass("active");
+    $(this).addClass("active");
+    var page = $(this).attr("data-src");
+    if(page) $("#content").load(page);
+  }).first().click();
+});
+</script>
