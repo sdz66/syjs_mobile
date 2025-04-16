@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批注示例</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+        <style>/* 全局样式 */
+            body {
+                font-family: 'Microsoft YaHei', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f5f9;
+            }
+            
+            /* 批注文字样式 */
+            .annotated-text {
+                border-bottom: 1px dashed #1e88e5;
+                cursor: pointer;
+                position: relative;
+            }
+            
+            /* 批注框样式 */
+            .annotation-box {
+                display: none;
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: white;
+                padding: 10px;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                width: 200px;
+                z-index: 1000;
+            }
+            
+            .annotation-box img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .annotation-box.active {
+                display: block;
+            }
+            
+            .content-container {
+                display: flex;
+                min-height: calc(100vh - 80px);
+            }
+            
+            @media (max-width: 768px) {
+                .content-container {
+                    flex-direction: column;
+                    height: 100vh;
+                    min-height: 100vh;
+                }
+                .sidebar {
+                    width: 100%;
+                    position: static;
+                    height: auto;
+                }
+                .content {
+                    position: static;
+                    width: 100%;
+                    padding: 15px;
+                    box-sizing: border-box;
+                    margin-left: 0;
+                    overflow: auto;
+                    height: calc(100vh - 80px);
+                    left: 0;
+                }
+            }
+            
+            .sidebar {
+                width: 250px;
+                background-color: #fff;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                position: fixed;
+                height: calc(100vh - 80px);
+                z-index: 100;
+            }
+            
+            .sidebar.collapsed {
+                width: 50px;
+            }
+            
+            .sidebar.collapsed .toc {
+                display: none;
+            }
+            
+            .toggle-sidebar {
+                display: block;
+                background: #4a90e2;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 20px;
+                cursor: pointer;
+                position: fixed;
+                left: 20px;
+                top: 20px;
+                z-index: 1000;
+            }
+            
+            .content {
+                position: absolute;
+                top: 80px;
+                left: 250px;
+                right: 0;
+                bottom: 0;
+                padding: 20px;
+                overflow-y: auto;
+                text-indent: 2em;
+                transition: left 0.3s ease;
+            }
+            
+            .content.expanded {
+                margin-left: 50px;
+            }
+            
+            header {
+                background-color: #1e88e5;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            header h1 {
+                margin: 0;
+                font-size: 24px;
+            }
+            
+            .language-selector {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .language-btn {
+                background: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            
+            .language-dropdown {
+                display: none;
+                position: absolute;
+                background: white;
+                min-width: 100px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 1;
+            }
+            
+            .language-dropdown a {
+                color: #333;
+                padding: 8px 12px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .language-dropdown a:hover {
+                background-color: #f1f1f1;
+            }
+            
+            main {
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .button-container {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 50px;
+            }
+            
+            .main-btn {
+                background-color: #1e88e5;
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                font-size: 18px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            .main-btn:hover {
+                background-color: #1565c0;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            }
+            
+            /* 电子阅读页面布局样式 */
+            .content-container {
+                display: flex;
+                height: calc(100vh - 120px);
+            }
+            
+            .sidebar {
+                width: 250px;
+                background-color: #f5f5f5;
+                transition: width 0.3s ease;
+                overflow: hidden;
+                position: fixed;
+                left: 0;
+                top: 80px;
+                height: calc(100vh - 80px);
+                z-index: 100;
+            }
+            
+            .sidebar:not(.active) {
+                width: 0;
+            }
+            
+            .sidebar.active {
+                width: 250px;
+            }
+            
+            .toggle-sidebar {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+                background: #4a90e2;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 20px;
+                cursor: pointer;
+                z-index: 1000;
+                display: block;
+            }
+            
+            .toc {
+                padding: 20px;
+            }
+            
+            .toc ul {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .toc li {
+                margin-bottom: 10px;
+            }
+            
+            .toc a {
+                color: #333;
+                text-decoration: none;
+            }
+            
+            .toc a:hover {
+                color: #4a90e2;
+            }
+            
+            .content {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 20px;
+                overflow-y: auto;
+                text-indent: 2em;
+            }
+        </style>
+</head>
+<body>
+    <header>
+        <button class="home-btn">返回主界面</button>
+        <h1>批注示例</h1>
+    </header>
+    <main>
+        <p>这是一个<span class="annotated-text">示例文本<span class="annotation-box">这是一个简单的批注示例，点击虚线文本可以显示/隐藏批注框</span></span>，展示了批注功能的使用方法。</p>
+        <p>您也可以添加<span class="annotated-text">图片批注<span class="annotation-box"><img src="images/map.JPG" alt="示例图片"><br>这是一张地图示例图片</span></span>来丰富内容。</p>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // 批注功能相关元素
+    const annotatedTexts = document.querySelectorAll('.annotated-text');
+    
+    // 侧边栏相关元素
+    const toggleBtn = document.querySelector('.toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+    const mainBtns = document.querySelectorAll('.main-btn');
+    const homeBtn = document.querySelector('.home-btn');
+
+    if (toggleBtn && sidebar && content) {
+        toggleBtn.style.display = 'block';
+        
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+    }
+
+    if (mainBtns.length === 3) {
+        mainBtns[0].addEventListener('click', function() {
+            window.location.href = '知识е览.html';
+        });
+        mainBtns[1].addEventListener('click', function() {
+            window.location.href = '知苏答理.html';
+        });
+        mainBtns[2].addEventListener('click', function() {
+            window.location.href = '苏行漫迹.html';
+        });
+    }
+    
+    if (homeBtn) {
+        homeBtn.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    }
+    
+    // 批注点击事件
+    annotatedTexts.forEach(text => {
+        const annotationBox = text.querySelector('.annotation-box');
+        if (annotationBox) {
+            text.addEventListener('click', function(e) {
+                e.stopPropagation();
+                annotationBox.classList.toggle('active');
+            });
+        }
+    });
+    
+    // 语言切换按钮相关元素
+    const languageBtn = document.querySelector('.language-btn');
+    const languageDropdown = document.querySelector('.language-dropdown');
+    
+    if (languageBtn && languageDropdown) {
+        languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.style.display = languageDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+    
+    // 点击页面其他位置关闭批注框和语言下拉菜单
+    document.addEventListener('click', function() {
+        if (languageDropdown) {
+            languageDropdown.style.display = 'none';
+        }
+        annotatedTexts.forEach(text => {
+            const annotationBox = text.querySelector('.annotation-box');
+            if (annotationBox) {
+                annotationBox.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
