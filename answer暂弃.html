@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>苏行漫迹 - 水韵江苏配套数字资源</title>
+  <meta name="title" content="苏行漫迹 - 水韵江苏配套数字资源">
+  <meta name="description" content="This is a education html template made by codewithsadee">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/font/font.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+</head>
+
+<body>
+  <div class="preloader" data-preloader>
+    <div class="circle" data-circle></div>
+  </div>
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link title-sm" data-nav-link>首页</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="knowledge.html" class="navbar-link title-sm" data-nav-link>知识е览</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="answer.html" class="navbar-link title-sm" data-nav-link>知苏答理</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="travel.html" class="navbar-link title-sm" data-nav-link>苏行漫迹</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#" class="btn btn-secondary"> 中文 </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-overlay data-nav-toggler></div>
+    </div>
+  </header>
+
+  <main>
+    <article>      
+            <section class="section hero has-bg-image" aria-labelledby="hero-label"
+            style="background-image: url('./assets/images/hero-bg.png')">
+            <div class="container">
+    
+              <div class="hero-content">
+    
+                <h1 class="headline-lg" id="hero-label">
+                  <span class="span">知行</span>擂台
+                </h1>
+                <hr>
+                <br>
+                <h1 class="headline-lg hero-title">
+                  来华留学中国国情教育地方特色普及
+                </h1>
+                <p class="title-md has-before">  
+                  ——以创建水韵江苏配套数字资源为例            
+                </p>
+              </div>
+            </div>
+          </section>
+            
+      <section class="quiz-container" aria-labelledby="quiz-label" style="margin-top: 80px;">
+        <div class="container">
+          <h2 class="headline-md section-title" id="quiz-label" style="font-size: inherit;">  </h2>
+          <div id="quiz-progress"></div>
+          <div id="quiz-question" style="font-size: 1.5em;"></div>
+          <div id="quiz-options"></div>
+          <br><br>
+          <button id="quiz-next" class="btn btn-tertiary" style="display:none;">下一题</button>
+          <div id="quiz-result" style="display:none;"></div>
+        </div>
+      </section>
+      <br><br><br><br><br>
+<div style="display: flex; justify-content: center;">
+  <a href="rank.html" class="btn btn-primary">本周积分榜</a>
+</div>
+    </article>
+  </main>
+
+ 
+  <footer class="footer has-bg-image" style="background-image: url('./assets/images/footer-bg.png')">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="145" height="27" alt="home">
+          </a>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="headline-sm footer-list-title">Links</p>
+          </li>
+          <li>
+            <a href="index.html" class="title-sm footer-link">首页</a>
+          </li>
+          <li>
+            <a href="knowledge.html" class="title-sm footer-link">知识е览</a>
+          </li>
+          <li>
+            <a href="answer.html" class="title-sm footer-link">知苏答理</a>
+          </li>
+          <li>
+            <a href="travel.html" class="title-sm footer-link">苏行漫迹</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          © Copyright 2025 | HHU | All Rights Reserved by SDZ
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    // 题目数据
+    const quizData = {
+      trueFalse: [
+      { "question": "南京的70多个城市名称表明南京拥有悠久的历史\nThe names of over 70 cities in Nanjing indicate that the city has a long history", "answer": true },
+      { "question": "南京目前是中国南方的政治文化中心\nNanjing is currently the political and cultural center of southern China", "answer": false },
+      { "question": "独角兽企业数量的多少可以说明这座城市对人才、项目的吸引力\nThe number of unicorn companies indicates the city's appeal to talents and projects", "answer": true },
+      { "question": "北京烤鸭的历史比南京烤鸭悠久\nBeijing roast duck has a longer history than Nanjing roast duck", "answer": false },
+      { "question": "南京是一座中国教育文化名城\nNanjing is a renowned educational and cultural city in China", "answer": true },
+      { "question": "南京是全世界唯一一个获得‘世界文学之都’称号的城市\nNanjing is the only city in the world awarded 'City of Literature'", "answer": false },
+      { "question": "约翰•拉贝在南京大屠杀期间组建了南京国际安全区，保护了很多中国人的生命\nJohn Rabe established the Nanjing Safety Zone during the massacre, saving many lives", "answer": true },
+      { "question": "新街口是‘中华第一商圈’，新街口商圈是中国百货业最发达、商贸密集度最高的地区\nXinjiekou is known as the \"No.1 Commercial District in China\" with the most developed department store industry", "answer": false }
+      ],
+      multipleChoice: [
+  {
+    question: "以下哪座城市是中国东部地区重要的中心城市，历史上一直有‘东南第一重镇’之称？\nWhich city has been historically known as the 'First Strategic Town in Southeast'?",
+    options: ["南京", "杭州", "上海"],
+    answer: 0
+  },
+  {
+    question: "以下哪一项不属于中国四大古都？\nWhich is NOT one of China's Four Great Ancient Capitals?",
+    options: ["南京", "西安", "北京", "杭州"],
+    answer: 3
+  },
+  {
+    question: "南京的内核是什么？\nWhat is the core spirit of Nanjing?",
+    options: ["博爱", "平等", "和谐"],
+    answer: 0
+  },
+  {
+    question: "博爱的理念是谁提出来的？\nWho proposed the concept of 'Universal Love'?",
+    options: ["闻一多", "孙中山", "钱钟书"],
+    answer: 1
+  },
+  {
+    question: "以下哪所高校位于南京？\nWhich university is located in Nanjing?",
+    options: ["东南大学", "浙江大学", "中国海洋大学"],
+    answer: 0
+  },
+  {
+    question: "以下哪一项不属于南京特色美食？\nWhich is NOT a characteristic Nanjing cuisine?",
+    options: ["盐水鸭", "皮肚面", "胡辣汤"],
+    answer: 2
+  }
+]
+    };
+
+    // 答题逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化答题状态
+      let currentQuestion = 0;
+      let score = 0;
+      let currentQuizType = 'trueFalse';
+      
+      // 获取DOM元素
+      const quizProgress = document.getElementById('quiz-progress');
+      const quizQuestion = document.getElementById('quiz-question');
+      const quizOptions = document.getElementById('quiz-options');
+      const quizNext = document.getElementById('quiz-next');
+      const quizResult = document.getElementById('quiz-result');
+      
+      // 显示题目函数
+      function showQuestion() {
+        // 显示进度
+        quizProgress.textContent = `该部分进度 ${currentQuestion + 1}/${quizData[currentQuizType].length}`;
+        
+        // 显示问题
+        const question = quizData[currentQuizType][currentQuestion];
+        quizQuestion.textContent = question.question;
+        
+        // 显示选项
+        quizOptions.innerHTML = '';
+        
+        if (currentQuizType === 'trueFalse') {
+          // 判断题选项
+          quizOptions.innerHTML = `
+            <button class="btn btn-secondary" data-answer="true">正确</button>
+            <button class="btn btn-secondary" data-answer="false">错误</button>
+          `;
+        } else {
+          // 选择题选项
+          question.options.forEach((option, index) => {
+            const optionBtn = document.createElement('button');
+            optionBtn.className = 'btn btn-secondary';
+            optionBtn.textContent = option;
+            optionBtn.dataset.answer = index;
+            quizOptions.appendChild(optionBtn);
+          });
+        }
+        
+        // 添加选项点击事件
+        const optionButtons = quizOptions.querySelectorAll('button');
+        optionButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            // 检查答案
+            const userAnswer = button.dataset.answer === 'true' ? true : 
+                              button.dataset.answer === 'false' ? false : 
+                              parseInt(button.dataset.answer);
+            
+            const correctAnswer = currentQuizType === 'trueFalse' ? 
+                                 quizData[currentQuizType][currentQuestion].answer :
+                                 quizData[currentQuizType][currentQuestion].answer;
+            
+            if (userAnswer === correctAnswer) {
+              score++;
+              button.classList.add('correct');
+            } else {
+              button.classList.add('incorrect');
+            }
+            
+            // 禁用所有选项
+            optionButtons.forEach(btn => btn.disabled = true);
+            
+            // 显示下一题按钮
+            quizNext.style.display = 'block';
+          });
+        });
+      }
+      
+      // 下一题按钮事件
+      quizNext.addEventListener('click', () => {
+        currentQuestion++;
+        
+        // 检查是否还有题目
+        if (currentQuestion < quizData[currentQuizType].length) {
+          showQuestion();
+          quizNext.style.display = 'none';
+        } else {
+          // 检查是否还有下一类题目
+          if (currentQuizType === 'trueFalse') {
+            // 切换到选择题
+            currentQuizType = 'multipleChoice';
+            currentQuestion = 0;
+            showQuestion();
+            quizNext.style.display = 'none';
+          } else {
+            // 显示最终结果
+            quizQuestion.style.display = 'none';
+            quizOptions.style.display = 'none';
+            quizNext.style.display = 'none';
+            quizResult.style.display = 'block';
+            quizResult.innerHTML = `
+              <h3>答题完成!</h3>
+              <p>你的得分: ${score} / ${quizData.trueFalse.length + quizData.multipleChoice.length}</p>
+              <button class="btn btn-tertiary" onclick="location.reload()">再试一次</button>
+              <button class="btn btn-tertiary" onclick="window.location.href='knowledge.html'">知识学习</button>
+            `;
+          }
+        }
+      });
+      
+      // 开始答题
+      showQuestion();
+    });
+  </script>
+</body>
+</html>

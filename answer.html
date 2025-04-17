@@ -13,6 +13,48 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+
+  <style>
+    .quiz-item {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.title-sm {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.option-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.option-container:hover {
+    background-color: #f5f5f5;
+}
+.option-container img {
+    margin-right: 10px;
+}
+input[type="radio"] {
+    margin-right: 10px;
+}
+.english-translation {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
+  </style>
 </head>
 
 <body>
@@ -66,249 +108,359 @@
     </div>
   </header>
 
-  <main>
+<main>
     <article>      
-            <section class="section hero has-bg-image" aria-labelledby="hero-label"
-            style="background-image: url('./assets/images/hero-bg.png')">
-            <div class="container">
-    
-              <div class="hero-content">
-    
-                <h1 class="headline-lg" id="hero-label">
-                  <span class="span">知行</span>擂台
-                </h1>
-                <hr>
-                <br>
-                <h1 class="headline-lg hero-title">
-                  来华留学中国国情教育地方特色普及
-                </h1>
-                <p class="title-md has-before">  
-                  ——以创建水韵江苏配套数字资源为例            
-                </p>
-              </div>
-            </div>
-          </section>
-            
-      <section class="quiz-container" aria-labelledby="quiz-label" style="margin-top: 80px;">
+        <section class="section hero has-bg-image" aria-labelledby="hero-label"
+        style="background-image: url('./assets/images/hero-bg.png')">
         <div class="container">
-          <h2 class="headline-md section-title" id="quiz-label" style="font-size: inherit;">  </h2>
-          <div id="quiz-progress"></div>
-          <div id="quiz-question" style="font-size: 1.5em;"></div>
-          <div id="quiz-options"></div>
-          <br><br>
-          <button id="quiz-next" class="btn btn-tertiary" style="display:none;">下一题</button>
-          <div id="quiz-result" style="display:none;"></div>
+
+          <div class="hero-content">
+
+            <h1 class="headline-lg" id="hero-label">
+              <span class="span">知行</span>擂台
+            </h1>
+            <hr>
+            <br>
+            <h1 class="headline-lg hero-title">
+              来华留学中国国情教育地方特色普及
+            </h1>
+            <p class="title-md has-before">  
+              ——以创建水韵江苏配套数字资源为例            
+            </p>
+          </div>
+          <div style="display: flex; justify-content: center;">
+            <a href="rank.html" class="btn btn-primary">本周积分榜</a>
+          </div>
         </div>
       </section>
-      <br><br><br><br><br>
-<div style="display: flex; justify-content: center;">
-  <a href="rank.html" class="btn btn-primary">本周积分榜</a>
-</div>
+
+        <!-- 新增答题区域 -->
+        <section class="section quiz" style="padding: 40px 0;">
+            <div class="container">
+                <h2 class="headline-md">知识问答</h2>
+                
+                <!-- 选择题 -->                
+                    <div class="quiz-item">
+                        <p class="title-sm">1. 以下哪座城市是中国东部地区重要的中心城市，历史上一直有"东南第一重镇"之称？</p>
+                        <p class="english-translation">Which of the following cities is an important central city in eastern China and has historically been known as the "First Important Town in the Southeast"?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <img src="./assets/images/选择题/0 (1).jpeg" alt="南京" width="80" height="80">
+                                    <input type="radio" name="q2" value="A"> a. 南京  Nanjing
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="./assets/images/选择题/0 (2).jpeg" alt="杭州" width="80" height="80">
+                                    <input type="radio" name="q2" value="B"> b. 杭州  Hangzhou
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="./assets/images/选择题/0 (1).png" alt="上海" width="80" height="80">
+                                    <input type="radio" name="q2" value="C"> c. 上海  Shanghai
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-item">
+                        <p class="title-sm">2. 以下哪一项不属于中国四大古都？</p>
+                        <p class="english-translation">Which of the following is not one of China's Four Great Ancient Capitals?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (1).jpeg" alt="南京" width="80" height="80">
+                                    <input type="radio" name="q3" value="A"> a. 南京  Nanjing
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (3).jpeg" alt="西安" width="80" height="80">
+                                    <input type="radio" name="q3" value="B"> b. 西安  Xi'an
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (4).jpeg" alt="北京" width="80" height="80">
+                                    <input type="radio" name="q3" value="C"> c. 北京    Beijing
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (2).jpeg" alt="杭州" width="80" height="80">
+                                    <input type="radio" name="q3" value="D"> d. 杭州  Hangzhou
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-item">
+                        <p class="title-sm">3. 南京的内核是什么？</p>
+                        <p class="english-translation">What is the core value of Nanjing?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <input type="radio" name="q4" value="A"> a. 博爱  Fraternity
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <input type="radio" name="q4" value="B"> b. 平等  Equality
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container"> 
+                                    <input type="radio" name="q4" value="C"> c. 和谐  Harmony
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-item">
+                        <p class="title-sm">4. 博爱的理念是谁提出来的？</p>
+                        <p class="english-translation">Who proposed the concept of "Fraternity"?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (5).jpeg" alt="闻一多" width="80" height="80">
+                                    <input type="radio" name="q5" value="A"> a. 闻一多    Wen Yiduo
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (6).jpeg" alt="孙中山" width="80" height="80">
+                                    <input type="radio" name="q5" value="B"> b. 孙中山  Sun Yat-sen
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (7).jpeg" alt="钱钟书" width="80" height="80">
+                                    <input type="radio" name="q5" value="C"> c. 钱钟书   Qian Zhongshu
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-item">
+                        <p class="title-sm">5. 以下哪所高校位于南京？</p>
+                        <p class="english-translation">Which of the following universities is located in Nanjing?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (9).jpeg" alt="东南大学" width="80" height="80">
+                                    <input type="radio" name="q6" value="A"> a. 东南大学  Southeast University
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (8).jpeg" alt="浙江大学" width="80" height="80">
+                                    <input type="radio" name="q6" value="B"> b. 浙江大学  Zhejiang University
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (10).jpeg" alt="中国海洋大学" width="80" height="80">
+                                    <input type="radio" name="q6" value="C"> c. 中国海洋大学  Ocean University of China
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div class="quiz-item">
+                        <p class="title-sm">6. 以下哪一项不属于南京特色美食？</p>
+                        <p class="english-translation">Which of the following is not a specialty food of Nanjing?</p>
+                        <div class="options">
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (11).jpeg" alt="盐水鸭" width="80" height="80">
+                                    <input type="radio" name="q7" value="A"> a. 盐水鸭  Boiled Salted Duck
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (12).jpeg" alt="皮肚面" width="80" height="80">
+                                    <input type="radio" name="q7" value="B"> b. 皮肚面   Pork Rind Noodles 
+                                </div>
+                            </label>
+                            <label>
+                                <div class="option-container">
+                                    <img src="assets\images\选择题\0 (13).jpeg" alt="胡辣汤" width="80" height="80">
+                                    <input type="radio" name="q7" value="C"> c. 胡辣汤   Spicy Soup
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+
+                <!-- 判断题 -->
+                <div class="quiz-item">
+                    <p class="title-sm">8. 南京的70多个城市名称表明南京拥有悠久的历史。</p>
+                    <p class="english-translation">The names of over 70 cities in Nanjing indicate that the city has a long history. </p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge1" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge1" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">2. 南京目前是中国南方的政治文化中心。</p>
+                    <p class="english-translation">Nanjing is currently the political and cultural center of the southern part of China.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge2" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge2" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">3. 独角兽企业数量的多少可以说明这座城市对人才、项目的吸引力。</p>
+                    <p class="english-translation">The number of unicorn companies can indicate the attractiveness of the city to talents and projects.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge3" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge3" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">4. 北京烤鸭的历史比南京烤鸭悠久。</p>
+                    <p class="english-translation">The history of Beijing duck is older than that of Nanjing duck.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge4" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge4" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">5. 南京是一座中国教育文化名城。</p>
+                    <p class="english-translation">Nanjing is a Chinese education and cultural city.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge5" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge5" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">6. 南京是全世界唯一一个获得“世界文学之都”称号的城市。</p>
+                    <p class="english-translation">Nanjing is the only city in the world that has been awarded the "World Literature City" title.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge6" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge6" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">7. 约翰•拉贝在南京大屠杀期间组建了南京国际安全区，保护了很多中国人的生命。</p>
+                    <p class="english-translation">John Labe, during the Nanjing Incident, established the Nanjing International Security Zone, protecting many Chinese lives.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge7" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge7" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="quiz-item">
+                    <p class="title-sm">8. 新街口是“中华第一商圈”，新街口商圈是中国百货业最发达、商贸密集度最高的地区。</p>
+                    <p class="english-translation">New Juke is the "First Chinese Business District," and New Juke Business District is the most prosperous and commercial dense area in China.</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="judge8" value="true"> 对
+                        </label>
+                        <label>
+                            <input type="radio" name="judge8" value="false"> 错
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 填空题 -->
+                <!-- <div class="quiz-item">
+                    <p class="title-sm">3. 江苏省的省会城市是？</p>
+                    <input type="text" class="quiz-input" placeholder="请输入答案">
+                </div> -->
+
+                <!-- 提交按钮和结果显示 -->
+                <div class="quiz-submit">
+                    <button class="btn btn-primary" onclick="checkAnswers()">提交答案</button>
+                    <p class="result" id="quizResult" style="margin-top: 20px; display: none;"></p>
+                </div>
+            </div>
+        </section>
     </article>
-  </main>
+</main>
 
- 
-  <footer class="footer has-bg-image" style="background-image: url('./assets/images/footer-bg.png')">
+<script>
+    function checkAnswers() {
+        let correctCount = 0;
 
-    <div class="section footer-top">
-      <div class="container">
+        // 选择题答案验证
+        const q1Answer = document.querySelector('input[name="q2"]:checked')?.value;
+        const q2Answer = document.querySelector('input[name="q3"]:checked')?.value;
+        const q3Answer = document.querySelector('input[name="q4"]:checked')?.value;
+        const q4Answer = document.querySelector('input[name="q5"]:checked')?.value;
+        const q5Answer = document.querySelector('input[name="q6"]:checked')?.value;
+        const q6Answer = document.querySelector('input[name="q7"]:checked')?.value;
 
-        <div class="footer-brand">
+        // 判断题答案
+        const judgeAnswer1 = document.querySelector('input[name="judge1"]:checked')?.value;
+        const judgeAnswer2 = document.querySelector('input[name="judge2"]:checked')?.value;
+        const judgeAnswer3 = document.querySelector('input[name="judge3"]:checked')?.value;
+        const judgeAnswer4 = document.querySelector('input[name="judge4"]:checked')?.value;
+        const judgeAnswer5 = document.querySelector('input[name="judge5"]:checked')?.value;
+        const judgeAnswer6 = document.querySelector('input[name="judge6"]:checked')?.value;
+        const judgeAnswer7 = document.querySelector('input[name="judge7"]:checked')?.value;
+        const judgeAnswer8 = document.querySelector('input[name="judge8"]:checked')?.value;
 
-          <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="145" height="27" alt="home">
-          </a>
-        </div>
+        // 答案判断
+        if (q1Answer === 'A') correctCount++; // 问题1正确答案A
+        if (q2Answer === 'D') correctCount++; // 问题2正确答案D
+        if (q3Answer === 'A') correctCount++; // 问题3正确答案A
+        if (q4Answer === 'B') correctCount++; // 问题4正确答案B
+        if (q5Answer === 'A') correctCount++; // 问题5正确答案A
+        if (q6Answer === 'C') correctCount++; // 问题6正确答案C
+        if (judgeAnswer1 === 'true') correctCount++; // 判断题对
+        if (judgeAnswer2 === 'false') correctCount++;
+        if (judgeAnswer3 === 'true') correctCount++; // 判断题对
+        if (judgeAnswer4 === 'false') correctCount++;
+        if (judgeAnswer5 === 'true') correctCount++; // 判断题对
+        if (judgeAnswer6 === 'false') correctCount++;
+        if (judgeAnswer7 === 'true') correctCount++; // 判断题对
+        if (judgeAnswer8 === 'false') correctCount++;
 
-        <ul class="footer-list">
-          <li>
-            <p class="headline-sm footer-list-title">Links</p>
-          </li>
-          <li>
-            <a href="index.html" class="title-sm footer-link">首页</a>
-          </li>
-          <li>
-            <a href="knowledge.html" class="title-sm footer-link">知识е览</a>
-          </li>
-          <li>
-            <a href="answer.html" class="title-sm footer-link">知苏答理</a>
-          </li>
-          <li>
-            <a href="travel.html" class="title-sm footer-link">苏行漫迹</a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          © Copyright 2025 | HHU | All Rights Reserved by SDZ
-        </p>
-
-      </div>
-    </div>
-
-  </footer>
-
+        // 显示结果
+        const resultElement = document.getElementById('quizResult');
+        resultElement.textContent = `您答对了 ${correctCount} 题`;
+        resultElement.style.display = 'block';
+    }
+</script>
 
   <script src="./assets/js/script.js"></script>
-  <script>
-    // 题目数据
-    const quizData = {
-      trueFalse: [
-      { "question": "南京的70多个城市名称表明南京拥有悠久的历史\nThe names of over 70 cities in Nanjing indicate that the city has a long history", "answer": true },
-      { "question": "南京目前是中国南方的政治文化中心\nNanjing is currently the political and cultural center of southern China", "answer": false },
-      { "question": "独角兽企业数量的多少可以说明这座城市对人才、项目的吸引力\nThe number of unicorn companies indicates the city's appeal to talents and projects", "answer": true },
-      { "question": "北京烤鸭的历史比南京烤鸭悠久\nBeijing roast duck has a longer history than Nanjing roast duck", "answer": false },
-      { "question": "南京是一座中国教育文化名城\nNanjing is a renowned educational and cultural city in China", "answer": true },
-      { "question": "南京是全世界唯一一个获得‘世界文学之都’称号的城市\nNanjing is the only city in the world awarded 'City of Literature'", "answer": false },
-      { "question": "约翰•拉贝在南京大屠杀期间组建了南京国际安全区，保护了很多中国人的生命\nJohn Rabe established the Nanjing Safety Zone during the massacre, saving many lives", "answer": true },
-      { "question": "新街口是‘中华第一商圈’，新街口商圈是中国百货业最发达、商贸密集度最高的地区\nXinjiekou is known as the \"No.1 Commercial District in China\" with the most developed department store industry", "answer": false }
-      ],
-      multipleChoice: [
-  {
-    question: "以下哪座城市是中国东部地区重要的中心城市，历史上一直有‘东南第一重镇’之称？\nWhich city has been historically known as the 'First Strategic Town in Southeast'?",
-    options: ["南京", "杭州", "上海"],
-    answer: 0
-  },
-  {
-    question: "以下哪一项不属于中国四大古都？\nWhich is NOT one of China's Four Great Ancient Capitals?",
-    options: ["南京", "西安", "北京", "杭州"],
-    answer: 3
-  },
-  {
-    question: "南京的内核是什么？\nWhat is the core spirit of Nanjing?",
-    options: ["博爱", "平等", "和谐"],
-    answer: 0
-  },
-  {
-    question: "博爱的理念是谁提出来的？\nWho proposed the concept of 'Universal Love'?",
-    options: ["闻一多", "孙中山", "钱钟书"],
-    answer: 1
-  },
-  {
-    question: "以下哪所高校位于南京？\nWhich university is located in Nanjing?",
-    options: ["东南大学", "浙江大学", "中国海洋大学"],
-    answer: 0
-  },
-  {
-    question: "以下哪一项不属于南京特色美食？\nWhich is NOT a characteristic Nanjing cuisine?",
-    options: ["盐水鸭", "皮肚面", "胡辣汤"],
-    answer: 2
-  }
-]
-    };
-
-    // 答题逻辑
-    document.addEventListener('DOMContentLoaded', function() {
-      // 初始化答题状态
-      let currentQuestion = 0;
-      let score = 0;
-      let currentQuizType = 'trueFalse';
-      
-      // 获取DOM元素
-      const quizProgress = document.getElementById('quiz-progress');
-      const quizQuestion = document.getElementById('quiz-question');
-      const quizOptions = document.getElementById('quiz-options');
-      const quizNext = document.getElementById('quiz-next');
-      const quizResult = document.getElementById('quiz-result');
-      
-      // 显示题目函数
-      function showQuestion() {
-        // 显示进度
-        quizProgress.textContent = `该部分进度 ${currentQuestion + 1}/${quizData[currentQuizType].length}`;
-        
-        // 显示问题
-        const question = quizData[currentQuizType][currentQuestion];
-        quizQuestion.textContent = question.question;
-        
-        // 显示选项
-        quizOptions.innerHTML = '';
-        
-        if (currentQuizType === 'trueFalse') {
-          // 判断题选项
-          quizOptions.innerHTML = `
-            <button class="btn btn-secondary" data-answer="true">正确</button>
-            <button class="btn btn-secondary" data-answer="false">错误</button>
-          `;
-        } else {
-          // 选择题选项
-          question.options.forEach((option, index) => {
-            const optionBtn = document.createElement('button');
-            optionBtn.className = 'btn btn-secondary';
-            optionBtn.textContent = option;
-            optionBtn.dataset.answer = index;
-            quizOptions.appendChild(optionBtn);
-          });
-        }
-        
-        // 添加选项点击事件
-        const optionButtons = quizOptions.querySelectorAll('button');
-        optionButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            // 检查答案
-            const userAnswer = button.dataset.answer === 'true' ? true : 
-                              button.dataset.answer === 'false' ? false : 
-                              parseInt(button.dataset.answer);
-            
-            const correctAnswer = currentQuizType === 'trueFalse' ? 
-                                 quizData[currentQuizType][currentQuestion].answer :
-                                 quizData[currentQuizType][currentQuestion].answer;
-            
-            if (userAnswer === correctAnswer) {
-              score++;
-              button.classList.add('correct');
-            } else {
-              button.classList.add('incorrect');
-            }
-            
-            // 禁用所有选项
-            optionButtons.forEach(btn => btn.disabled = true);
-            
-            // 显示下一题按钮
-            quizNext.style.display = 'block';
-          });
-        });
-      }
-      
-      // 下一题按钮事件
-      quizNext.addEventListener('click', () => {
-        currentQuestion++;
-        
-        // 检查是否还有题目
-        if (currentQuestion < quizData[currentQuizType].length) {
-          showQuestion();
-          quizNext.style.display = 'none';
-        } else {
-          // 检查是否还有下一类题目
-          if (currentQuizType === 'trueFalse') {
-            // 切换到选择题
-            currentQuizType = 'multipleChoice';
-            currentQuestion = 0;
-            showQuestion();
-            quizNext.style.display = 'none';
-          } else {
-            // 显示最终结果
-            quizQuestion.style.display = 'none';
-            quizOptions.style.display = 'none';
-            quizNext.style.display = 'none';
-            quizResult.style.display = 'block';
-            quizResult.innerHTML = `
-              <h3>答题完成!</h3>
-              <p>你的得分: ${score} / ${quizData.trueFalse.length + quizData.multipleChoice.length}</p>
-              <button class="btn btn-tertiary" onclick="location.reload()">再试一次</button>
-              <button class="btn btn-tertiary" onclick="window.location.href='knowledge.html'">知识学习</button>
-            `;
-          }
-        }
-      });
-      
-      // 开始答题
-      showQuestion();
-    });
-  </script>
+  
 </body>
 </html>
