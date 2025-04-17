@@ -98,3 +98,27 @@ const navigateTab = function () {
 
 addEventOnelem(tabCard, "click", navigateTab);
 
+// 批注点击事件
+annotatedTexts.forEach(text => {
+  const annotationBox = text.querySelector('.annotation-box');
+  if (annotationBox) {
+      text.addEventListener('click', function(e) {
+          e.stopPropagation();
+          annotationBox.classList.toggle('active');
+      });
+  }
+});
+
+
+// 点击页面其他位置关闭批注框和语言下拉菜单
+document.addEventListener('click', function() {
+  if (languageDropdown) {
+      languageDropdown.style.display = 'none';
+  }
+  annotatedTexts.forEach(text => {
+      const annotationBox = text.querySelector('.annotation-box');
+      if (annotationBox) {
+          annotationBox.classList.remove('active');
+      }
+  });
+});
