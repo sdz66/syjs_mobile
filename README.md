@@ -10,10 +10,10 @@
 - **苏行漫迹**：江苏文化旅行地图与沉浸式学习
 
 ## 技术栈
-- HTML5
-- CSS3
-- JavaScript
-- IonIcons图标库
+- HTML5/CSS3
+- JavaScript (ES6+)
+- IonIcons 5.5.3 图标库
+- Vite 4.4 构建工具
 
 ## 项目结构
 ```
@@ -22,16 +22,30 @@ syjs_mobile/
 │   ├── css/
 │   ├── font/
 │   ├── images/
+│   └── js/
+├── scripts/
+│   └── countLines.js
 ├── index.html
 ├── knowledge.html
-├── answer.html 
+├── answer.html
 ├── travel.html
 └── README.md
 ```
 
 ## 快速开始
-1. 克隆项目
-2. 打开index.html即可运行
+```bash
+# 克隆仓库
+git clone https://github.com/your-repo/syjs_mobile.git
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+```
 
 ## 贡献指南
 欢迎提交Pull Request或Issue
