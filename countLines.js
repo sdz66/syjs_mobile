@@ -12,9 +12,19 @@ function countLines(dir) {
             
             if (stat.isDirectory()) {
                 walk(filePath);
-            } else if (/\.(js|css|html)$/.test(file)) {
+            } else if (/\.(js|css|html)$/i.test(file)) {
                 const content = fs.readFileSync(filePath, 'utf8');
-                const lines = content.split('\n').length;
+                let cleanedContent;
+                
+                if (filePath.endsWith('.js')) {
+                    cleanedContent = content.replace(/\/\/.*|\/\*[\s\S]*?\*\//g, '');
+                } else if (filePath.endsWith('.css')) {
+                    cleanedContent = content.replace(/\/\*[\s\S]*?\*\//g, '');
+                } else { // .html
+                    cleanedContent = content.replace(/<!--[\s\S]*?-->/g, '');
+                }
+                
+                const lines = cleanedContent.split('\n').filter(line => line.trim() !== '').length;
                 totalLines += lines;
             }
         }
