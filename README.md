@@ -32,20 +32,10 @@ syjs_mobile/
 └── README.md
 ```
 
-## 快速开始
-```bash
-# 克隆仓库
-git clone https://github.com/your-repo/syjs_mobile.git
-
-# 安装依赖
-npm install
-
-# 启动开发服务器
-npm run dev
-
-# 构建生产版本
-npm run build
-```
+## 代码统计
+统计规则：
+- 统计范围：.js/.html/.css 源代码文件
+- 排除内容：空行、单行注释(//)、块注释(/* */)、HTML注释(<!-- -->)
 
 ## 贡献指南
 欢迎提交Pull Request或Issue
