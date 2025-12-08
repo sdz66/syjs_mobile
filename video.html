@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>苏行漫迹 - 水韵江苏配套数字资源</title>
+  <meta name="title" content="苏行漫迹 - 水韵江苏配套数字资源">
+  <meta name="description" content="This is a education html template made by codewithsadee">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/font/font.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+  <style>
+    .video-section {
+      padding: 24px 0;
+    }
+    .video-header {
+      margin-bottom: 12px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .video-aspect {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+    .video-aspect > video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+    .options-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+    }
+    .options-card {
+      width: 92%;
+      max-width: 560px;
+      background: #121212;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .options-title { margin: 0 0 12px; }
+    .options-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .option-btn {
+      flex: 1 1 auto;
+      min-width: 140px;
+      padding: 10px 14px;
+      border-radius: 24px;
+      border: 1px solid #2e6bfd;
+      background: #2e6bfd;
+      color: #fff;
+      cursor: pointer;
+    }
+    .option-btn.secondary { background: transparent; color: #fff; }
+    .mobile-actions { display: none; margin-top: 12px; }
+    .mobile-actions .option-btn { width: 100%; }
+
+    @media (max-width: 480px) {
+      .video-wrapper { border-radius: 8px; }
+      .options-card { width: 100%; padding: 12px; }
+      .options-list { gap: 8px; }
+      .option-btn { min-width: 120px; padding: 10px; }
+      .mobile-actions { display: block; }
+      .header { padding-block: 12px; }
+      .header .container { padding-inline: 12px; }
+      .header .logo img { width: 120px; height: auto; }
+      .nav-open-btn, .nav-close-btn { font-size: 26px; }
+      .footer-top .container { gap: 16px; }
+      .footer-list-title { margin-block-end: 16px; }
+      .footer-bottom { padding-block: 16px; }
+      .footer .container { padding-inline: 12px; }
+      .copyright { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preloader" data-preloader>
+    <div class="circle" data-circle></div>
+  </div>
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/logo.svg" width="145" height="27" alt="Youdemi home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link title-sm" data-nav-link>首页</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="knowledge.html" class="navbar-link title-sm" data-nav-link>知识е览</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="answer.html" class="navbar-link title-sm" data-nav-link>知苏答理</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="travel.html" class="navbar-link title-sm" data-nav-link>苏行漫迹</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#" class="btn btn-secondary"> 中文 </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-overlay data-nav-toggler></div>
+    </div>
+  </header>
+
+  <main>
+    <article>      
+      <section class="section video-section" aria-labelledby="video-label">
+        <div class="container">
+          <div class="video-header">
+            <h2 class="headline-md section-title" id="video-label">水韵江苏 · 视频资源</h2>
+            <p class="title-sm">开启学习之旅！</p>
+          </div>
+
+          <div class="video-wrapper">
+            <div class="video-aspect">
+              <video id="player" controls playsinline></video>
+              <div class="options-overlay" id="optionsOverlay" aria-hidden="true">
+                <div class="options-card">
+                  <h3 class="options-title title-md">选择下一段旅程</h3>
+                  <div class="options-list" id="optionsList"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-actions" id="mobileActions" aria-hidden="true">
+            <!-- 当视频结束时，也在视频下方提供按钮，便于手机操作 -->
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="footer has-bg-image" style="background-image: url('./assets/images/footer-bg.png')">
+
+    <div class="section footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="145" height="27" alt="home">
+          </a>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="headline-sm footer-list-title">Links</p>
+          </li>
+          <li>
+            <a href="index.html" class="title-sm footer-link">首页</a>
+          </li>
+          <li>
+            <a href="knowledge.html" class="title-sm footer-link">知识е览</a>
+          </li>
+          <li>
+            <a href="answer.html" class="title-sm footer-link">知苏答理</a>
+          </li>
+          <li>
+            <a href="travel.html" class="title-sm footer-link">苏行漫迹</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          © Copyright 2025 | HHU | All Rights Reserved by SDZ
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="./assets/js/script.js"></script>
+  <script>
+    const videos = [
+      { id: 'v1', title: '起点 · 总览', src: './assets/video/IMG_1396.mp4', options: [
+        { label: '明孝陵', nextId: 'v2' },
+        { label: '中山陵', nextId: 'v3' },
+        { label: '南唐二陵', nextId: 'v4' }
+      ] },
+      { id: 'v2', title: '明孝陵', src: './assets/video/IMG_1397.mp4', options: [
+        { label: '历史变迁', nextId: 'v5' },
+        { label: '风云人物', nextId: 'v6' },
+        { label: '历史意义', nextId: 'v7' }
+      ] },
+      { id: 'v3', title: '中山陵', src: 'http://vjs.zencdn.net/v/oceans.mp4', options: [] },
+      { id: 'v4', title: '南唐二陵', src: 'http://vjs.zencdn.net/v/oceans.mp4', options: [] },
+      { id: 'v5', title: '历史变迁', src: './assets/video/IMG_1399.mp4', options: [] },
+      { id: 'v6', title: '风云人物', src: './assets/video/IMG_1400.mp4', options: [] },
+      { id: 'v7', title: '历史意义', src: './assets/video/IMG_1401.mp4', options: [] }
+    ];
+
+    const videoMap = Object.fromEntries(videos.map(v => [v.id, v]));
+    const player = document.getElementById('player');
+    const choiceOverlay = document.getElementById('optionsOverlay');
+    const optionsList = document.getElementById('optionsList');
+    const mobileActions = document.getElementById('mobileActions');
+
+    let currentId = videos[0].id;
+
+    function loadVideo(id, autoplay = true) {
+      const item = videoMap[id];
+      if (!item) return;
+      currentId = id;
+      choiceOverlay.style.display = 'none';
+      choiceOverlay.setAttribute('aria-hidden', 'true');
+      mobileActions.innerHTML = '';
+      mobileActions.setAttribute('aria-hidden', 'true');
+      player.src = item.src;
+      if (autoplay) {
+        player.play().catch(() => {});
+      }
+    }
+
+    function renderOptions(item) {
+      optionsList.innerHTML = '';
+      mobileActions.innerHTML = '';
+      const hasOptions = item.options && item.options.length > 0;
+      if (hasOptions) {
+        item.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'option-btn';
+          btn.textContent = opt.label;
+          btn.onclick = () => loadVideo(opt.nextId);
+          optionsList.appendChild(btn);
+
+          const btn2 = document.createElement('button');
+          btn2.className = 'option-btn';
+          btn2.textContent = opt.label;
+          btn2.onclick = () => loadVideo(opt.nextId);
+          mobileActions.appendChild(btn2);
+        });
+      } else {
+        const endMsg = document.createElement('p');
+        endMsg.textContent = '学习到达当前分支末端';
+        endMsg.style.marginBottom = '10px';
+        optionsList.appendChild(endMsg);
+      }
+
+      const back = document.createElement('button');
+      back.className = 'option-btn secondary';
+      back.textContent = '回到起点';
+      back.onclick = () => loadVideo(videos[0].id);
+      optionsList.appendChild(back);
+
+      const back2 = back.cloneNode(true);
+      back2.onclick = () => loadVideo(videos[0].id);
+      mobileActions.appendChild(back2);
+
+      mobileActions.setAttribute('aria-hidden', 'false');
+    }
+
+    player.addEventListener('ended', () => {
+      const item = videoMap[currentId];
+      renderOptions(item);
+      choiceOverlay.style.display = 'flex';
+      choiceOverlay.setAttribute('aria-hidden', 'false');
+    });
+
+    // 初始加载
+    loadVideo(currentId, false);
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

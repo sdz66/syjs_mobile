@@ -73,12 +73,15 @@ window.addEventListener("scroll", headerActive);
  */
 
 const addEventOnelem = function (elem, type, callback) {
-  if (elem.length > 1) {
+  if (!elem) return;
+  if (elem.length) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener(type, callback);
     }
   } else {
-    elem.addEventListener(type, callback);
+    if (typeof elem.addEventListener === "function") {
+      elem.addEventListener(type, callback);
+    }
   }
 }
 
@@ -98,27 +101,30 @@ const navigateTab = function () {
 
 addEventOnelem(tabCard, "click", navigateTab);
 
-// 批注点击事件
-annotatedTexts.forEach(text => {
-  const annotationBox = text.querySelector('.annotation-box');
-  if (annotationBox) {
-      text.addEventListener('click', function(e) {
-          e.stopPropagation();
-          annotationBox.classList.toggle('active');
-      });
-  }
-});
+if (typeof annotatedTexts !== "undefined" && annotatedTexts && typeof annotatedTexts.forEach === "function") {
+  annotatedTexts.forEach(text => {
+    const annotationBox = text.querySelector('.annotation-box');
+    if (annotationBox) {
+        text.addEventListener('click', function(e) {
+            e.stopPropagation();
+            annotationBox.classList.toggle('active');
+        });
+    }
+  });
+}
 
 
 // 点击页面其他位置关闭批注框和语言下拉菜单
 document.addEventListener('click', function() {
-  if (languageDropdown) {
+  if (typeof languageDropdown !== "undefined" && languageDropdown) {
       languageDropdown.style.display = 'none';
   }
-  annotatedTexts.forEach(text => {
-      const annotationBox = text.querySelector('.annotation-box');
-      if (annotationBox) {
-          annotationBox.classList.remove('active');
-      }
-  });
+  if (typeof annotatedTexts !== "undefined" && annotatedTexts && typeof annotatedTexts.forEach === "function") {
+    annotatedTexts.forEach(text => {
+        const annotationBox = text.querySelector('.annotation-box');
+        if (annotationBox) {
+            annotationBox.classList.remove('active');
+        }
+    });
+  }
 });
