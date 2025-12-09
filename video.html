@@ -223,34 +223,8 @@
 
   <script src="./assets/js/script.js"></script>
   <script>
- 
-  function renderVideo(v) {
-    const box = document.getElementById('video-box');
-
-  // 判断是否是 bilibili 的 iframe
-    if (v.src.includes('player.bilibili.com')) {
-      box.innerHTML = `
-        <iframe 
-          src="${v.src}"
-          frameborder="0"
-          allowfullscreen="true"
-          scrolling="no"
-          style="width:100%;height:500px;">
-        </iframe>`;
-    } else {
-      // 默认当成 mp4 播放
-      box.innerHTML = `
-        <video controls style="width:100%;height:auto;">
-          <source src="${v.src}" type="video/mp4">
-        </video>`;
-    }
-  }
-
-
-    
     const videos = [
-      { id: 'v1', title: '起点 · 总览', type: 'bilibili', src: '//player.bilibili.com/player.html?isOutside=true&aid=973351136&bvid=BV1v44y1z7oV&cid=343668781&p=1', options: [
-        // ./assets/video/IMG_1396.mp4
+      { id: 'v1', title: '起点 · 总览', src: './assets/video/IMG_1396.mp4', options: [
         { label: '明孝陵', nextId: 'v2' },
         { label: '中山陵', nextId: 'v3' },
         { label: '南唐二陵', nextId: 'v4' }
@@ -342,4 +316,3 @@
 
 </body>
 </html>
-
